@@ -28,14 +28,18 @@ while True:
     input("Press [Any button] to continue.")
 
     #quit option after 10 attempts
-    if count == 10:
+    if count >= 10:
         print(f"You have already generated 10 unique sentences!\n"
               f"Would you like to proceed? [y]es or [n]o")
-        action = input()
-        if action == "y" or action == "yes":
-            count = 0
-            continue
-        elif action == "n" or action == "no":
-            print("Goodbye!")
-            exit()
-
+        while True:
+            action = input()
+            if action in ['y', 'Y', 'yes', 'Yes']:
+                count = 0
+                break
+            elif action in ['n', 'N', 'no', 'No']:
+                print("Goodbye!")
+                exit()
+            else:
+                print("Unrecognised option!\n"
+                      f"Would you like to proceed?\n"
+                      f"Please type [y]es or [n]o")
